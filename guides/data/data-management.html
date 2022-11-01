@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Data and Storage SOP | SCINet | USDA Scientific Computing Initiative</title>
+
+
+
+<meta name="description" content="Suggested best practices for managing data on SCINet infrastructure">
+
+
+
+<link rel="shortcut icon" type="image/ico"
+  href="/scinet-site/assets/uswds/img/favicons/favicon.ico">
+
+<link rel="icon" type="image/png"
+  href="/scinet-site/assets/uswds/img/favicons/favicon.png">
+
+<link rel="icon" type="image/png"
+  sizes="192x192"
+  href="/scinet-site/assets/uswds/img/favicons/favicon-192.png">
+
+<link rel="apple-touch-icon-precomposed" type=""
+  href="/scinet-site/assets/uswds/img/favicons/favicon-57.png">
+
+<link rel="apple-touch-icon-precomposed" type=""
+  sizes="72x72"
+  href="/scinet-site/assets/uswds/img/favicons/favicon-72.png">
+
+<link rel="apple-touch-icon-precomposed" type=""
+  sizes="114x114"
+  href="/scinet-site/assets/uswds/img/favicons/favicon-114.png">
+
+<link rel="apple-touch-icon-precomposed" type=""
+  sizes="144x144"
+  href="/scinet-site/assets/uswds/img/favicons/favicon-144.png">
+
+
+
+  
+
+
+
+<link rel="stylesheet"
+  href="/scinet-site/assets/css/style.css"
+  media="screen">
+
+  
+  
+
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=USDA&subagency=ARS"></script>
+
+
+  
+  <script>0</script>
+</head>
+
+<body class="site-90%">
+
+  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+  
+
+
+
+  <section class="usa-banner" aria-label="Official government website">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img class="usa-banner__header-flag" src="/scinet-site/assets/uswds/img/us_flag_small.png" alt="U.S. flag">
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto">
+          <p class="usa-banner__header-text">This is a demo of the redesigned SCINet website. <a href="https://scinet.usda.gov/" >Click here to visit the current website.</a></p>
+        </div>
+      </div>
+    </header>
+  </div>
+</section>
+
+
+
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--extended sci-heading" role="banner">
+
+  <div class="usa-navbar">
+      
+<div class="usa-logo">
+    
+    <span class="agency-logo display-flex flex-align-center margin-right-1">
+        
+        <a href="/scinet-site/">
+            <img class="usa-logo-img"
+                src="/scinet-site/assets/img/site/usda-logo-color.svg"
+                alt="USDA">
+        </a>
+        
+    </span>
+    
+    <a class="agency-logo-text"
+        href="/scinet-site/"
+        aria-label="SCINet Scientific Computing">
+        <div class="agency-identity">
+            <div class="agency-name usa-logo__text">SCINet Scientific Computing</div>
+            
+            <div class="tagline">U.S. Department of Agriculture</div>
+            
+        </div>
+    </a>
+</div>
+    <button type="button" class="usa-menu-btn">Menu</button>
+  </div>
+
+  <nav aria-label="Primary navigation" class="usa-nav border-bottom-2px">
+    <div class="usa-nav__inner">
+      <button type="button" class="usa-nav__close">
+        <img src="/scinet-site/assets/uswds/img/usa-icons/close.svg" alt="close">
+      </button>
+      
+      
+      
+      <ul class="usa-nav__primary usa-accordion">
+        
+        <li class="usa-nav__primary-item">
+          
+          <a class=" usa-nav__link  "
+            href="/scinet-site/">
+            <span>Home</span>
+          </a>
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-About">
+            <span>About</span>
+          </button>
+
+          
+          
+
+<ul id="nav-About" class="usa-nav__submenu" hidden="">
+
+  
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/about/signup"><span>Sign up for an account</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/about/compute"><span>Computer Systems</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/about/organization"><span>Organization</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/about/contact"><span>Contact</span></a>
+          </li>
+          
+      
+</ul>
+          
+
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-News">
+            <span>News</span>
+          </button>
+
+          
+          
+
+<ul id="nav-News" class="usa-nav__submenu" hidden="">
+
+  
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/news/downtime"><span>System Downtime</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/news/announcements"><span>Announcements</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/news/stories"><span>User Stories</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/news/newsletter"><span>Newsletter</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/news/scinet-x"><span>SCINet-X</span></a>
+          </li>
+          
+      
+</ul>
+          
+
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-User Guides">
+            <span>User Guides</span>
+          </button>
+
+          
+          
+
+<ul id="nav-User Guides" class="usa-nav__submenu" hidden="">
+
+  
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/guides/start"><span>Quick Start</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/guides"><span>All User Guides</span></a>
+          </li>
+          
+      
+</ul>
+          
+
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-Research">
+            <span>Research</span>
+          </button>
+
+          
+          <ul id="nav-Research" class="usa-nav__submenu usa-megamenu" hidden="">
+    <div class="grid-row grid-gap-4">
+        
+        
+        <li class="desktop:grid-col-3"></li>
+        
+        
+            
+            
+            
+                <li class="usa-nav__submenu-item desktop:grid-col-3 m-top-0">
+                    
+
+                    
+                    
+                    <div class="">
+                        <a href="/scinet-site/research/working-groups">
+                            Working Groups
+                        </a>
+                    </div>
+
+                    <ul id="nav-ResearchWorking Groups" class="sublist">
+
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/working-groups/ag100pest">
+                                    Ag100Pest
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/working-groups/arthropods">
+                                    Arthropod Genomics
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/working-groups/geospatial">
+                                    Geospatial Research
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/working-groups/microbiome">
+                                    Microbiome
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/working-groups/LTARphenology">
+                                    LTAR Phenology
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/working-groups/pollinator">
+                                    Pollinator
+                                </a>
+                            </li>
+
+                        
+                    </ul>
+                </li>
+            
+        
+            
+            
+            
+                <li class="usa-nav__submenu-item desktop:grid-col-3 m-top-0">
+                    
+
+                    
+                    
+                    <div class="">
+                        <a href="/scinet-site/research/uses">
+                            Use Cases
+                        </a>
+                    </div>
+
+                    <ul id="nav-ResearchUse Cases" class="sublist">
+
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/uses/genomics">
+                                    Genomics
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/uses/plant-breeding">
+                                    Plant breeding
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/uses/geospatial">
+                                    Geospatial
+                                </a>
+                            </li>
+
+                        
+
+                            <li>
+                                <a class="sublinks" href="/scinet-site/research/uses/hydrology">
+                                    Hydrology
+                                </a>
+                            </li>
+
+                        
+                    </ul>
+                </li>
+            
+        
+    </div>
+
+
+</ul>
+          
+
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-Training and Events">
+            <span>Training and Events</span>
+          </button>
+
+          
+          
+
+<ul id="nav-Training and Events" class="usa-nav__submenu" hidden="">
+
+  
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/training/learningpath"><span>Learning Pathway</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/training/free-online-training"><span>Free Online Training</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/training/events"><span>Upcoming Events</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/training/bioinformatics-workbook"><span>Bioinformatics Workbook</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/training/coursera"><span>Coursera</span></a>
+          </li>
+          
+      
+</ul>
+          
+
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-Support">
+            <span>Support</span>
+          </button>
+
+          
+          
+
+<ul id="nav-Support" class="usa-nav__submenu" hidden="">
+
+  
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/support/vrsc"><span>Virtual Research Support Core (VSRC)</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/support/faq"><span>FAQs</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="https://forum.scinet.usda.gov"><span>USDA-ARS SCINet Forum</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/support/request-storage"><span>Request Project Storage</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/support/request-software"><span>Request Software</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/support/request-AWS"><span>Request AWS</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/support/ceres-job-script"><span>Ceres Job Script Generator</span></a>
+          </li>
+          
+      
+</ul>
+          
+
+          
+        </li>
+        
+        <li class="usa-nav__primary-item">
+          
+
+          
+          
+          
+          <button type="button" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-Opportunities">
+            <span>Opportunities</span>
+          </button>
+
+          
+          
+
+<ul id="nav-Opportunities" class="usa-nav__submenu" hidden="">
+
+  
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/opportunities/SAC"><span>SAC Membership</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/opportunities/request-workshop"><span>Request a Workshop</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/opportunities/fellowships"><span>Fellowships (PhD & MS)</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/opportunities/ai-innovation"><span>AI Innovation Fund</span></a>
+          </li>
+          
+      
+      
+          <li class="usa-nav__submenu-item">
+            <a
+              href="/scinet-site/opportunities/scinet-aicoe-fellowships"><span>SCINet and AI-COE fellowship proposals</span></a>
+          </li>
+          
+      
+</ul>
+          
+
+          
+        </li>
+        
+
+
+      </ul>
+      
+
+    </div>
+
+    
+    <div class="usa-nav__secondary">
+      
+      
+      <form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get"
+        class="usa-search usa-search--small js-search-form">
+        <input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="affiliate" id="affiliate" value="scinet-usda" />
+        <div role="search">
+          <label for="query" class="usa-sr-only">Enter search terms</label>
+          <input autocomplete="off" class="usa-input usagov-search-autocomplete" id="query" name="query"
+            type="search" />
+          <button class="usa-button" type="submit" name="commit">
+            <img src="/scinet-site/assets/uswds/img/usa-icons-bg/search--white.svg"
+              class="usa-search__submit-icon" alt="Search" />
+          </button>
+        </div>
+      </form>
+      
+    </div>
+
+
+    </div>
+    </div>
+  </nav>
+
+</header>
+
+
+
+  
+
+    
+
+
+    
+    
+
+
+    
+
+    
+
+    
+    
+    
+
+
+
+
+    
+    
+
+
+    <div class="grid-container main-side">
+
+
+  
+
+
+  
+
+  
+
+
+
+
+
+
+
+<div class="grid-row grid-gap flex-align-start">
+    <div class="usa-layout-docs__sidenav desktop:grid-col-3 desktop:padding-y-10 usa-sticky-sidenav">
+        <nav aria-label="Secondary navigation">
+  <ul class="usa-sidenav">
+
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides/start" 
+        >
+        Quick Start
+    </a>
+    
+</li>
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides" 
+        >
+        All User Guides
+    </a>
+    
+</li>
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides/data" 
+         
+        class=" guide-nav " 
+        >
+        Storage and Data Management
+    </a>
+    
+</li>
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides/data/data-management" 
+         
+        class="usa-current " 
+        >
+        Data and Storage SOP
+    </a>
+    
+    
+    <ul class="usa-sidenav__sublist">
+        
+            
+
+
+<li>
+  <a href="#definitions" >Definitions</a>
+</li>
+
+
+
+
+
+<li>
+  <a href="#detailed-instructions-using-globus-preferred" >Detailed instructions, using Globus</a>
+</li>
+
+
+
+
+
+<li>
+  <a href="#alternative-instructions-not-using-globus" >Alternative instructions, not using Globus</a>
+</li>
+
+
+
+        
+        
+    </ul>
+    
+    
+</li>
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides/data/datatransfer" 
+        >
+        SCINet File Transfer
+    </a>
+    
+</li>
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides/data/quotas" 
+        >
+        Storage Quotas
+    </a>
+    
+</li>
+    
+    
+
+
+
+
+
+<li class="usa-sidenav__item">
+    <a href="/scinet-site/guides/data/storage" 
+        >
+        SCINet Storage
+    </a>
+    
+</li>
+    
+
+  </ul>
+</nav>
+    </div>
+    
+    <div class="usa-layout-docs__main desktop:grid-col-9">
+        <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs">
+  <ol class="usa-breadcrumb__list">
+    
+    
+
+
+<li class="usa-breadcrumb__list-item">
+  <a href="/scinet-site/" class="usa-breadcrumb__link">
+    <span>SCINet Home</span>
+  </a>
+</li>
+
+    
+      
+
+
+<li class="usa-breadcrumb__list-item">
+  <a href="/scinet-site/guides" class="usa-breadcrumb__link">
+    <span>All User Guides</span>
+  </a>
+</li>
+    
+
+    
+      
+      
+        
+          
+          
+
+
+<li class="usa-breadcrumb__list-item">
+  <a href="/scinet-site/guides/data" class="usa-breadcrumb__link">
+    <span>Storage and Data Management</span>
+  </a>
+</li>
+        
+      
+    
+
+
+    <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+      <span>Data and Storage SOP</span>
+    </li>
+  </ol>
+</nav>
+        <main class="usa-layout-docs usa-layout-docs__main usa-prose" id="main-content">
+
+          
+  
+      <h1 class="top-header">Data and Storage SOP</h1>
+  
+  
+
+  
+
+  
+
+  <p>This document describes recommended procedures (SOP) for managing data on ARS HPC and storage infrastructure.<!--excerpt--> The key concept is to only use “Tier 1 storage” (that is, storage that is local to a given HPC cluster) as required for actively running compute jobs. Tier 1 storage is not backed up and should not be used for archival purposes. Juno, on the other hand, is periodically backed up to tape and can be used for long-term storage of data and results.  We recommend immediate adoption of the procedures described here for new projects. These procedures should also be followed for “old” projects after first moving extant project data in Tier 1 storage to Juno using one of the procedures described below.  If you would like more detailed information about the data storage options provided by SCINet and how to use them, please see the <a href="/scinet-site/guide/storage/">SCINet Storage Guide</a>.</p>
+
+<p><img src="/scinet-site/assets/img/guides/data/data_management_sop-fig_1.png" alt="Schematic diagram of recommended data management workflow using Globus." />
+<em>Figure 1. Recommended procedures for managing data on ARS HPC infrastructure using Globus.</em></p>
+
+<ol class="usa-sr-only" aria-describedby="source" title="Diagram of Recommended Data Management Workflow - Screen Reader Text">
+  <li>Move data to Juno</li>
+  <li>Copy data to target HPC (Ceres or Atlas)</li>
+  <li>Run compute tasks</li>
+  <li>Copy Results to Juno</li>
+  <li>Copy results to local machine, if desired</li>
+</ol>
+
+<h2 id="definitions">Definitions</h2>
+<ul>
+  <li><strong>Juno:</strong> Large, multi-petabyte ARS storage device at the National Agricultural Library in Maryland, accessed by users; periodically backed up to tape device.  Includes periodic file system snapshots that allow users to recover accidentally deleted files.</li>
+  <li><strong>Tape backup:</strong> Off-site backup of Juno, located at Mississippi State University, accessible by VRSC staff for disaster recovery following major system data loss.</li>
+  <li><strong>Tier 1 Storage:</strong> Storage on either of the HPC clusters, local to computing resources at the National Centers for Animal Health in Ames, Iowa or Mississippi State University. These locations are for storing code, data, and intermediate results while performing a series of computational jobs. This storage is not backed up. Two storage locations are available on each HPC cluster, <code class="language-plaintext highlighter-rouge">/project</code> and <code class="language-plaintext highlighter-rouge">/90daydata</code>. Historically, space had routinely been allocated in <code class="language-plaintext highlighter-rouge">/project</code>, but going forward, space in <code class="language-plaintext highlighter-rouge">/project</code> will only be allocated on an as-needed basis. Most users should use <code class="language-plaintext highlighter-rouge">/90daydata</code> for routine Tier 1 storage.</li>
+</ul>
+
+<h2 id="detailed-instructions-using-globus-preferred">Detailed instructions, using Globus (preferred)</h2>
+
+<p>Using Globus is recommended for file transfer performance and reliability. The recommended data management workflow using Globus is illustrated in Figure 1, above.</p>
+
+<p>See the SCINet <a href="https://scinet.usda.gov/guide/file-transfer/#globus-data-transfer">Globus Data Transfer guide</a> for instructions on how to use Globus.</p>
+
+<ol>
+  <li>Copy raw data and custom software (e.g., custom scripts, ideally also versioned in Git repositories; conda environments/environment.yml, Singularity image/definition files) from a local workstation or other data source to a project directory on Juno using Globus (search for Globus collection “NAL DTN 0”) (Figure 1.1).  On Juno, the data should be copied to <code class="language-plaintext highlighter-rouge">/LTS/project/PROJNAME/</code>.</li>
+  <li>If not already there, copy data to Tier 1 storage on the cluster you will run on, either Ceres or Atlas, using Globus.  For most projects, you should use <code class="language-plaintext highlighter-rouge">/90dayadata</code> for routine, short-term storage (Figure 1.2).  There are no storage quotas on <code class="language-plaintext highlighter-rouge">/90daydata</code>, so it is ideal for data-intensive work.  For projects that require longer-term use of Tier 1 storage, space can be requested in <code class="language-plaintext highlighter-rouge">/project</code>.  However, please note that <em>no</em> data on Tier 1 storage is backed up.</li>
+  <li>Use ssh to log in to your chosen HPC cluster (Ceres or Atlas; see <a href="https://scinet.usda.gov/guide/ceres/#logging-in-to-scinet">Logging in to SCINet</a>); (e.g.:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh FIRST.LAST@ceres.scinet.usda.gov
+</code></pre></div>    </div>
+    <p>) and run your compute job (Figure 1.3).</p>
+  </li>
+  <li>Copy any results you need to keep to Juno so that they are preserved (Figure 1.4).</li>
+  <li>If desired, you can also copy results to your local workstation (Figure 1.5). 
+Note that step 1 might not be necessary for all data used for a project. For example, suppose you need to use a large, publicly available satellite-derived dataset for a project. In this case, the data probably do not need to be stored on Juno and can simply be placed directly in <code class="language-plaintext highlighter-rouge">/90daydata</code> on Tier 1 storage and deleted when they are no longer needed.</li>
+</ol>
+
+<h2 id="alternative-instructions-not-using-globus">Alternative instructions, not using Globus</h2>
+
+<p>It is also possible to move data on SCINet infrastructure using traditional command-line tools like <code class="language-plaintext highlighter-rouge">scp</code> and <code class="language-plaintext highlighter-rouge">rsync</code>.  See the <a href="https://scinet.usda.gov/guide/file-transfer/#small-data-transfer-using-scp-and-rsync">SCINet File Transfer guide</a> for instructions on how to use these commands to transfer data to/from Ceres and Atlas cluster.</p>
+
+<p>To move data to/from Juno, login to ceres-dtn and issue scp or rsync command to nal-dtn, e.g.:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh ceres-dtn
+rsync -avz --no-p --no-g ttt nal-dtn.scinet.usda.gov:/LTS/project/&lt;project_name&gt;/
+</code></pre></div></div>
+
+
+
+  
+
+  <br>
+
+  
+
+
+        <br>
+    </main>
+  </div>
+</div>
+</div>
+
+
+    <br>
+
+    
+
+  
+
+  
+
+
+    
+<footer class="usa-footer usa-footer--big">
+
+  
+  <div class="grid-container">
+    <p>Last updated: November 01, 2022 at 12:45 PM</p>
+  </div>
+  
+
+  
+  <div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+  </div>
+  
+
+  
+  
+
+  <div class="usa-footer__primary-section">
+    <div class="grid-container">
+          <nav class="usa-footer__nav" aria-label="Footer navigation">
+            <div class="grid-row grid-gap-4">
+              
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+                
+                <section class="
+                    usa-footer__primary-content
+                    usa-footer__primary-content--collapsible
+                  ">
+                  <h4 class="usa-footer__primary-link">RESOURCES</h4>
+
+                  <ul class="usa-list usa-list--unstyled">
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="mailto:scinet_vrsc@usda.gov">
+                        Feedback
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="/scinet-site/about/signup">
+                        Sign Up
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="/scinet-site/about/contact">
+                        Contact
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="/scinet-site/opportunities/postdocs">
+                        Fellowships
+                      </a>
+                    </li>
+                    
+                  </ul>
+                  
+              </div>
+              
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+                
+                <section class="
+                    usa-footer__primary-content
+                    usa-footer__primary-content--collapsible
+                  ">
+                  <h4 class="usa-footer__primary-link">USDA</h4>
+
+                  <ul class="usa-list usa-list--unstyled">
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://ask.usda.gov/">
+                        AskUSDA
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://usda.gov/">
+                        USDA.gov
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://www.usa.gov">
+                        USA.gov
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://www.whitehouse.gov">
+                        WhiteHouse.gov
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://usda.gov/plain-writing">
+                        Plain Writing
+                      </a>
+                    </li>
+                    
+                  </ul>
+                  
+              </div>
+              
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+                
+                <section class="
+                    usa-footer__primary-content
+                    usa-footer__primary-content--collapsible
+                  ">
+                  <h4 class="usa-footer__primary-link">LEGAL</h4>
+
+                  <ul class="usa-list usa-list--unstyled">
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://usda.gov/accessibility-statement">
+                        Accessibility Statement
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://usda.gov/non-discrimination-statement">
+                        Non-Discrimination Statement
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://usda.gov/privacy-policy">
+                        Privacy Policy
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://www.dm.usda.gov/foia/">
+                        FOIA
+                      </a>
+                    </li>
+                    
+                    <li class="usa-footer__secondary-link">
+                      <a
+                        href="https://www.ocio.usda.gov/policy-directives-records-forms/information-quality-activities">
+                        Information Quality
+                      </a>
+                    </li>
+                    
+                  </ul>
+                  
+              </div>
+              
+            </div>
+          </nav>
+    </div>
+  </div>
+
+  
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container sci-heading">
+      <div class="grid-row grid-gap">
+        <div class="usa-footer__logo grid-row mobile-lg:grid-col-8 tablet:grid-gap-2">
+          
+
+          
+          <div class="">
+            
+<div class="usa-logo">
+    
+    <span class="agency-logo display-flex flex-align-center margin-right-1">
+        
+        <a href="/scinet-site/">
+            <img class="usa-logo-img"
+                src="/scinet-site/assets/img/site/usda-logo-color.svg"
+                alt="USDA">
+        </a>
+        
+    </span>
+    
+    <a class="agency-logo-text"
+        href="/scinet-site/"
+        aria-label="SCINet Scientific Computing">
+        <div class="agency-identity">
+            <div class="agency-name usa-logo__text">SCINet Scientific Computing</div>
+            
+            <div class="tagline">U.S. Department of Agriculture</div>
+            
+        </div>
+    </a>
+</div>
+          </div>
+          
+        </div>
+
+        
+        <div class="margin-y-auto mobile-lg:grid-col-4">
+          
+          <div class="usa-footer__social-links grid-row grid-gap-1">
+            <div class="grid-col-auto">
+              
+              <a class="usa-social-link" href="https://twitter.com/USDA_ARS"
+              ><img
+                class="usa-social-link__icon"
+                src="/scinet-site/assets/uswds/img/usa-icons/twitter.svg"
+                alt="Twitter"
+            /></a>
+              
+              <a class="usa-social-link" href="mailto:scinet_vrsc@usda.gov"
+              ><img
+                class="usa-social-link__icon"
+                src="/scinet-site/assets/uswds/img/usa-icons/mail.svg"
+                alt="Contact VRSC"
+            /></a>
+              
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+</footer>
+
+
+
+  <!-- dynamically determine scripts needed for this config -->
+
+
+
+
+
+
+
+  
+    
+      <script src="/scinet-site/assets/uswds/js/uswds.min.js" async></script>
+    
+
+  
+    
+      <script src="/scinet-site/assets/js/vendor/anchor.min.js"></script>
+    
+
+  
+    
+      <script src="/scinet-site/assets/js/main.js"></script>
+    
+
+  
+    
+      <script src="/scinet-site/assets/js/external.js"></script>
+    
+
+  
+    
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+      var usasearch_config = { siteHandle:"scinet-usda" };
+
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://search.usa.gov/javascripts/remote.loader.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+
+//]]>
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
